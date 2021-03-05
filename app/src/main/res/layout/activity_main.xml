@@ -51,6 +51,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:layout_height="wrap_content"/>
         <EditText
+            android:id="@+id/login_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -68,6 +69,7 @@
             android:textColorHint="@color/black" />
 
         <EditText
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
