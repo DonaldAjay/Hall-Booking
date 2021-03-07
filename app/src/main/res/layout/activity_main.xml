@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#C9AEE6E0"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
@@ -12,17 +13,19 @@
         android:id="@+id/login_card_banner"
         android:layout_width="350dp"
         android:layout_height="175dp"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
         android:layout_marginBottom="200dp"
+
         android:background="@color/card_color"
         app:cardCornerRadius="20dp">
 
         <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/card_color"
-            android:gravity="center">
+            android:background="@color/card_color">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,8 +39,8 @@
                     android:layout_width="90dp"
                     android:layout_height="90dp"
 
-                    android:src="@drawable/logo2"
-                    android:contentDescription="TODO" />
+                    android:contentDescription="TODO"
+                    android:src="@drawable/logo2" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -51,37 +54,26 @@
             </LinearLayout>
         </RelativeLayout>
 
-
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
-        android:id="@+id/lay1"
+    <RelativeLayout
+        android:id="@+id/login_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
-
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/background_form">
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:background="@drawable/background_form"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="35dp"
                 android:fontFamily="sans-serif-black"
                 android:text="HALL BOOKING"
@@ -126,6 +118,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp">
 
                 <TextView
@@ -148,12 +141,15 @@
                     android:textColor="@color/teal_200" />
             </LinearLayout>
 
-
             <Button
                 android:id="@+id/login"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="75dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/rectangle"
                 android:backgroundTint="@color/teal_700"
                 android:fontFamily="sans-serif-black"
@@ -162,7 +158,8 @@
                 android:textSize="18sp" />
 
         </LinearLayout>
-    </ScrollView>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
