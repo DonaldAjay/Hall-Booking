@@ -13,30 +13,50 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.QuickContactBadge;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends Activity {
     String str_login_id,str_login_password;
-    FirebaseAuth fbauth;
+    private FirebaseAuth fbauth;
     Button btn_login;
     ProgressDialog loadingbar;
     EditText login_id,login_password;
+    TextView admin_login,forgot_password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        btn_login = findViewById(R.id.login);
+        btn_login = (Button) findViewById(R.id.login);
         fbauth = FirebaseAuth.getInstance();
-        login_id =findViewById(R.id.login_id);
-        login_password= findViewById(R.id.login_password);
+        login_id = (EditText) findViewById(R.id.login_id);
+        login_password= (EditText) findViewById(R.id.login_password);
+        admin_login = findViewById(R.id.admin_login);
 
+        admin_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AdminLogin.class));
+            }
+        });
+
+        forgot_password = findViewById(R.id.forgot_password);
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,forgot_password.class);
+                startActivity(intent);
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +72,10 @@ public class MainActivity extends Activity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             loadingbar.dismiss();
-                            Intent intent = new Intent(MainActivity.this,HomePage.class);
-
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            Intent intent = new Intent(MainActivity.this,Department.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK );
                             startActivity(intent);
+                            finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -80,9 +100,11 @@ public class MainActivity extends Activity {
         }
         else if(str_login_password.isEmpty()){
             login_password.setError("Enter the Password");
+            login_password.requestFocus();
         }
         else if(str_login_password.length()<6){
             login_password.setError("Enter the Valid Password");
+            login_password.requestFocus();
     }
     }
 }
