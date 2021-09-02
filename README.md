@@ -1,2 +1,2 @@
 # Hall Booking
- Hall Booking using Android Studio
+ Hall Booking! is a Android mobile application is used to Book a venue 
